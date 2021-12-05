@@ -31,7 +31,7 @@ then
 # Delete the Example folder
 <img width="514" alt="delete_example" src="https://user-images.githubusercontent.com/65080026/144757747-348ee8c9-45b5-4b23-b6f0-f74ad50f9d5a.PNG">
 
-# Create a new folder, call it something useful:
+# Create a new folder in `Assets\Modifications`, call it `Lesson0_Portraits`:
 
 <img width="698" alt="createexamplefolder" src="https://user-images.githubusercontent.com/65080026/144757754-82d3f40f-0a22-4ab5-8d37-5e495db544e5.PNG">
 
@@ -41,7 +41,7 @@ then
 
 <img width="615" alt="create_folders" src="https://user-images.githubusercontent.com/65080026/144757766-359ce400-bd38-4cdd-8005-ac8f3f99a08d.PNG">
 
-# Add a modification object:
+# Add a modification object to `Assets\Modifications\Lesson0_Portraits`:
 
 <img width="605" alt="add_modification" src="https://user-images.githubusercontent.com/65080026/144757771-ee9c2ab6-e538-4625-aa5d-7cbf9fd27191.PNG">
 
@@ -55,11 +55,11 @@ then
 
 # NOTE - EVERYTHING IS THE SAME, add it, select it, edit it
 
-# Add an asmdef
+# Add an asmdef to `Assets\Modifications\Scripts`
 
 <img width="467" alt="create_asmdef" src="https://user-images.githubusercontent.com/65080026/144757799-7c4e4be2-f8df-48c5-84c0-c2afaa80453d.PNG">
 
-# Add a script:
+# Add a C# Script to `Assets\Modifications\Scripts`
 
 <img width="412" alt="create_script" src="https://user-images.githubusercontent.com/65080026/144757805-322bf25f-0da5-4d1b-81e3-e1c6582e28fb.PNG">
 
