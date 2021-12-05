@@ -214,7 +214,7 @@ public static class AddBlueprintsInCode {
 
 # Now build the mod again, and be amazed that it only takes like one second instead of 30.
 
- * Copy the `Build/BubbleTeaches_Lesson0Portraits` folder from thto `user-folder/AppData/LocalLow/Owlcat Games/Pathfinder Wrath Of The Righteous/Modifications`
+ * Copy the `Build/BubbleTeaches_Lesson0Portraits` folder from the `Builder` folder to `user-folder/AppData/LocalLow/Owlcat Games/Pathfinder Wrath Of The Righteous/Modifications`
  * Add your modification to user-folder/AppData/LocalLow/Owlcat Games/Pathfinder Wrath Of The Righteous/OwlcatModificationManagerSettings.json
 
 ```json
@@ -388,7 +388,7 @@ public static class AddBlueprintsInCode {
 }
 ```
 
-# Build the mod, then copy the build folder to the install location, then run
+# Build the mod, then copy the build folder to the install location (updating any current files), then run
 
 ![success](https://user-images.githubusercontent.com/65080026/144759730-70ba3f24-fca8-4af6-a5b8-7004947aa985.jpg)
 
