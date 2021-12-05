@@ -53,7 +53,7 @@ then
 
 <img width="577" alt="edit_modification_data" src="https://user-images.githubusercontent.com/65080026/144757788-4fb80a5f-2d34-4a22-a29c-cd666c3be4a4.PNG">
 
-# NOTE - Almost everythign we do follows the same pattern => RightClick -> Create -> Something, name it, then edit it.
+# NOTE - Almost everything we do follows the same pattern => RightClick -> Create -> Something, name it, then edit it.
 
 # Add an asmdef called `BubbleLesson0_Portraits` to `Assets\Modifications\Lesson0_Portraits\Scripts`
 
