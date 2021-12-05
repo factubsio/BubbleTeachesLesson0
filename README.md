@@ -140,7 +140,7 @@ public static class AddBlueprintsInCode {
 			var msBuildPath = @"C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe";
 			string projectPath = Path.Combine(
 				Directory.GetCurrentDirectory(),
-				"BubbleLesson0_Portraits.csproj"
+				"BubbleLesson0_Portraits.csproj" //THIS MUST MATCH YOUR CSPROJ FILE
 			);
 
 			var settings = m_BuildParameters.GetScriptCompilationSettings(); 
