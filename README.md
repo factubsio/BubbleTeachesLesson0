@@ -259,7 +259,7 @@ public static class AddBlueprintsInCode {
 
         var myPortrait = new BlueprintPortrait {
             name = "mewsifer-portrait",
-            AssetGuid = BlueprintGuid.Parse("c1874b9f-f84b-40b4-a9a1-1eed9eb16322"),
+            AssetGuid = BlueprintGuid.Parse("PUT-YOUR-GUID-HERE"),
             Data = new PortraitData {
                 PortraitCategory =  Kingmaker.Enums.PortraitCategory.Wrath,
                 m_FullLengthImage = new SpriteLink { AssetId = "" },
@@ -271,6 +271,127 @@ public static class AddBlueprintsInCode {
 }
 ```
 
+# But what do we put in our SpriteLinks??? First let's get some pictures:
 
+here is an example: [mewsifer-portraits.zip](https://github.com/factubsio/BubbleTeachesLesson0/files/7656553/mewsifer-portraits.zip)
+
+or you can generate your own using: http://www.notra.fr/portrait/pathfinder_wotr
+
+Download the zip, open it, and copy the three images into the `Content` folder of your mod:
+
+<img width="531" alt="copy_sprites" src="https://user-images.githubusercontent.com/65080026/144758611-15ebe761-ca32-49b0-84f5-a1f82ff06412.PNG">
+
+# We need to tell unity they are sprites:
+
+<img width="1470" alt="set_as_sprite" src="https://user-images.githubusercontent.com/65080026/144758646-68b4d289-1a34-4886-b51b-77bc5219f40e.PNG">
+
+# Click "apply"
+
+<img width="575" alt="apply" src="https://user-images.githubusercontent.com/65080026/144759508-83d0ecba-68ca-4f65-9bbb-baecaea74934.PNG">
+
+# Now we need some magic "AssetID", Owlcat has a right-click for this but it copies stuff we don't need, so let's open `Assets\Editor\ToolsMenu.cs`
+
+# Find the method `CopyAssetGuidAndFileID`, add the following code before it:
+
+```cs
+
+		[MenuItem("Assets/Modification Tools/Copy guid only", priority = 2)]
+		private static void CopyAssetGuidOnly()
+		{
+			var obj = Selection.activeObject;
+			if (AssetDatabase.TryGetGUIDAndLocalFileIdentifier(obj, out string guid, out long fileId))
+			{
+				GUIUtility.systemCopyBuffer = guid;
+			}
+			else
+			{
+				GUIUtility.systemCopyBuffer = $"Can't find guid for asset '{AssetDatabase.GetAssetPath(obj)}'";
+			}
+		}
+```
+
+# Now right click on your first sprite get the Asset id, then paste it into our script, repeat for the other two sprites:
+
+<img width="585" alt="copy_asset_id" src="https://user-images.githubusercontent.com/65080026/144759546-b9ff1444-de37-4468-8e79-e46712a232af.PNG">
+
+```cs
+
+[HarmonyPatch(typeof(BlueprintsCache), nameof(BlueprintsCache.Init))]
+public static class AddBlueprintsInCode {
+
+    [HarmonyPostfix]
+    public static void Init() {
+        Main.Log("Adding portraits");
+
+        var myPortrait = new BlueprintPortrait {
+            name = "mewsifer-portrait",
+            AssetGuid = BlueprintGuid.Parse("YOUR-GUID-HERE"),
+            Data = new PortraitData {
+                PortraitCategory =  Kingmaker.Enums.PortraitCategory.Wrath,
+                m_FullLengthImage = new SpriteLink { AssetId = "Fulllength-ASSET-ID" },
+                m_HalfLengthImage = new SpriteLink { AssetId = "Medium-ASSET-ID" },
+                m_PortraitImage = new SpriteLink { AssetId = "Small-ASSET-ID" },
+            }
+        };
+    }
+}
+```
+
+# Now we need to add our blueprint to the library, and then make sure the game will select it in the right place.
+
+Alas, we cannot. We can't touch owlcat's special privates (without blueprint patching which bleh).
+
+Unless? 😳👉👈
+
+There are two ways we can do this, the first is easier to start with but annoying if we want to use it often (reflection).
+
+The second is to replace the `Assets\PathfinderAssemblies\Assembly-CSharp.dll` with a publicized assembly. Use bing to find out how to publicize, but it's not hard.
+
+If you publicize you need to check `unsafe` code in the asmdef and will need to exit vscode/whatever C# editor you are using and re-open the script
+
+HOWEVER: for the sake of this tutorial we are just gonna use reflection because it's slightly more foolproof:
+
+# add:
+
+```cs
+
+[HarmonyPatch(typeof(BlueprintsCache), nameof(BlueprintsCache.Init))]
+public static class AddBlueprintsInCode {
+
+    [HarmonyPostfix]
+    public static void Init() {
+        Main.Log("Adding portraits");
+
+        var myPortrait = new BlueprintPortrait {
+            name = "mewsifer-portrait",
+            AssetGuid = BlueprintGuid.Parse("YOUR-GUID-HERE"),
+            Data = new PortraitData {
+                PortraitCategory =  Kingmaker.Enums.PortraitCategory.Wrath,
+                m_FullLengthImage = new SpriteLink { AssetId = "Fulllength-ASSET-ID" },
+                m_HalfLengthImage = new SpriteLink { AssetId = "Medium-ASSET-ID" },
+                m_PortraitImage = new SpriteLink { AssetId = "Small-ASSET-ID" },
+            }
+        };
+	
+       
+        ResourcesLibrary.BlueprintsCache.AddCachedBlueprint(myPortrait.AssetGuid, myPortrait);
+
+        var field = typeof(CharGenRoot).GetField("m_Portraits", BindingFlags.Instance | BindingFlags.NonPublic);
+        var charGen = BlueprintRoot.Instance.CharGen;
+
+        BlueprintPortraitReference[] portraitArray = (BlueprintPortraitReference[])field.GetValue(charGen);
+
+        portraitArray = portraitArray.AddToArray(myPortrait.ToReference<BlueprintPortraitReference>());
+
+        field.SetValue(charGen, portraitArray);
+    }
+}
+```
+
+# Build the mod, then copy the build folder to the install location, then run
+
+![success](https://user-images.githubusercontent.com/65080026/144759730-70ba3f24-fca8-4af6-a5b8-7004947aa985.jpg)
+
+(yes I need to hoover)
 
 
