@@ -55,11 +55,11 @@ then
 
 # NOTE - EVERYTHING IS THE SAME, add it, select it, edit it
 
-# Add an asmdef to `Assets\Modifications\Scripts`
+# Add an asmdef called `BubbleLesson0_Portraits` to `Assets\Modifications\Lesson0_Portraits\Scripts`
 
 <img width="467" alt="create_asmdef" src="https://user-images.githubusercontent.com/65080026/144757799-7c4e4be2-f8df-48c5-84c0-c2afaa80453d.PNG">
 
-# Add a C# Script to `Assets\Modifications\Scripts`
+# Add a C# Script called `PortraitInjector` to `Assets\Modifications\Lesson0_Portraits\Scripts`
 
 <img width="412" alt="create_script" src="https://user-images.githubusercontent.com/65080026/144757805-322bf25f-0da5-4d1b-81e3-e1c6582e28fb.PNG">
 
@@ -83,7 +83,7 @@ public class PortraitInjector
 <img width="595" alt="fix_problems" src="https://user-images.githubusercontent.com/65080026/144757838-f8ac2e1b-cb75-4e66-9591-80910084379c.PNG">
 
 
-# Add rest of the code:
+# Add rest of code to `PortraitInjector.cs`:
 ```cs
 using System.Collections;
 using System.Collections.Generic;
