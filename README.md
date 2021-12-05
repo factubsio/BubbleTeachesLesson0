@@ -214,7 +214,7 @@ public static class AddBlueprintsInCode {
 
 # Now build the mod again, and be amazed that it only takes like one second instead of 30.
 
- * Copy Build/your-modification-name folder to user-folder/AppData/LocalLow/Owlcat Games/Pathfinder Wrath Of The Righteous/Modifications
+ * Copy the `Build/BubbleTeaches_Lesson0Portraits` folder from thto `user-folder/AppData/LocalLow/Owlcat Games/Pathfinder Wrath Of The Righteous/Modifications`
  * Add your modification to user-folder/AppData/LocalLow/Owlcat Games/Pathfinder Wrath Of The Righteous/OwlcatModificationManagerSettings.json
 
 ```json
@@ -224,3 +224,16 @@ public static class AddBlueprintsInCode {
 ```
 
  * Run Pathfinder: Wrath of the Righteous
+
+# Open the log file: `user-folder/AppData/LocalLow/Owlcat Games/Pathfinder Wrath Of The Righteous/GameLogFull.txt`, search for `Bubble`, you should see:
+
+```
+[55.3343 - Mods]: Load modifications' descriptors: C:/Users/worce/AppData/LocalLow/Owlcat Games/Pathfinder Wrath Of The Righteous\Modifications
+[55.3413 - Mods]: Apply modification: BubbleTeaches_Lesson0Portraits (C:/Users/worce/AppData/LocalLow/Owlcat Games/Pathfinder Wrath Of The Righteous\Modifications\BubbleTeaches_Lesson0Portraits)
+[55.3443 - Mods]: Load assembly: C:/Users/worce/AppData/LocalLow/Owlcat Games/Pathfinder Wrath Of The Righteous\Modifications\BubbleTeaches_Lesson0Portraits\Assemblies\BubbleLesson0_Portraits.dll
+[55.3463 - Mods]: Bundle found: C:/Users/worce/AppData/LocalLow/Owlcat Games/Pathfinder Wrath Of The Righteous\Modifications\BubbleTeaches_Lesson0Portraits\Bundles\BubbleTeaches_Lesson0Portraits_BlueprintDirectReferences
+[55.3483 - Mods]: Initialize assembly: BubbleLesson0_Portraits, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+[55.4953 - BubbleTeaches_Lesson0Portraits]: Adding portraits
+```
+
+*hashtag-success*
