@@ -53,7 +53,7 @@ then
 
 <img width="577" alt="edit_modification_data" src="https://user-images.githubusercontent.com/65080026/144757788-4fb80a5f-2d34-4a22-a29c-cd666c3be4a4.PNG">
 
-# NOTE - EVERYTHING IS THE SAME, add it, select it, edit it
+# NOTE - Almost everythign we do follows the same pattern => RightClick -> Create -> Something, name it, then edit it.
 
 # Add an asmdef called `BubbleLesson0_Portraits` to `Assets\Modifications\Lesson0_Portraits\Scripts`
 
@@ -62,6 +62,10 @@ then
 # Add a C# Script called `PortraitInjector` to `Assets\Modifications\Lesson0_Portraits\Scripts`
 
 <img width="412" alt="create_script" src="https://user-images.githubusercontent.com/65080026/144757805-322bf25f-0da5-4d1b-81e3-e1c6582e28fb.PNG">
+
+# Your `Assets\Modifications\Lesson0_Portraits\Scripts` should look like this now:
+
+<img width="319" alt="after_making_asmdef_and_script" src="https://user-images.githubusercontent.com/65080026/144762847-28e5ac7b-18de-4c66-ab40-806927fc9ca2.PNG">
 
 # Open it, delete current contents, enter:
 ```cs
