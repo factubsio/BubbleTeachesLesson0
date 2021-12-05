@@ -212,3 +212,15 @@ public static class AddBlueprintsInCode {
 				}
 ```
 
+# Now build the mod again, and be amazed that it only takes like one second instead of 30.
+
+ * Copy Build/your-modification-name folder to user-folder/AppData/LocalLow/Owlcat Games/Pathfinder Wrath Of The Righteous/Modifications
+ * Add your modification to user-folder/AppData/LocalLow/Owlcat Games/Pathfinder Wrath Of The Righteous/OwlcatModificationManagerSettings.json
+
+```json
+{
+    "EnabledModifications": ["BubbleTeaches_Lesson0Portraits"]
+}
+```
+
+ * Run Pathfinder: Wrath of the Righteous
