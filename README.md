@@ -87,7 +87,7 @@ public class PortraitInjector
 <img width="595" alt="fix_problems" src="https://user-images.githubusercontent.com/65080026/144757838-f8ac2e1b-cb75-4e66-9591-80910084379c.PNG">
 
 
-# Add rest of code to `PortraitInjector.cs`:
+# Add rest of code to `PortraitInjector.cs` - you can either delete the current lines then copy/paste all the text below, or add just the new lines:
 ```cs
 using System.Collections;
 using System.Collections.Generic;
