@@ -237,3 +237,40 @@ public static class AddBlueprintsInCode {
 ```
 
 *hashtag-success*
+
+# Add a portrait, the blueprint:
+
+We need a "GUID" for the blueprint, this is just a (very) unique name to make sure if someone else adds a blueprint we don't clash.
+
+There are a bunch of ways to generate GUIDs, for the moment just go to https://guidgenerator.com/online-guid-generator.aspx and click generate, you should get something like:
+
+`024261bd-c6e9-4e55-a521-0fe4eb4f8xyz` - NOTE: This is intentionally invalid so you don't copy it.
+
+# Edit our code in `PortraitInjector.cs`:
+
+```cs
+
+[HarmonyPatch(typeof(BlueprintsCache), nameof(BlueprintsCache.Init))]
+public static class AddBlueprintsInCode {
+
+    [HarmonyPostfix]
+    public static void Init() {
+        Main.Log("Adding portraits");
+
+        var myPortrait = new BlueprintPortrait {
+            name = "mewsifer-portrait",
+            AssetGuid = BlueprintGuid.Parse("c1874b9f-f84b-40b4-a9a1-1eed9eb16322"),
+            Data = new PortraitData {
+                PortraitCategory =  Kingmaker.Enums.PortraitCategory.Wrath,
+                m_FullLengthImage = new SpriteLink { AssetId = "" },
+                m_HalfLengthImage = new SpriteLink { AssetId = "" },
+                m_PortraitImage = new SpriteLink { AssetId = "" },
+            }
+        };
+    }
+}
+```
+
+
+
+
