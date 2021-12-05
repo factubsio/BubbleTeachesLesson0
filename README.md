@@ -111,7 +111,7 @@ public class Main
         ModDetails = modDetails;
 
         // Create a new harmony instance with our unique name
-        HarmonyHandle = new(modDetails.Manifest.UniqueName);
+        HarmonyHandle = new Harmony(modDetails.Manifest.UniqueName);
 
         // Ask harmony to find all [HarmonyPatch] methods in this assembly and apply them
         HarmonyHandle.PatchAll(Assembly.GetExecutingAssembly());
