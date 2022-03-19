@@ -10,11 +10,11 @@ then
 
 <img width="583" alt="select_fodler" src="https://user-images.githubusercontent.com/65080026/144756445-f8925c94-d033-4b05-a07d-b8cdd8d4f483.png">
 
-# Update the project to the correct Unity version:
+# Update the project to the correct Unity version (2019.4.0f1):
 
 <img width="552" alt="update0" src="https://user-images.githubusercontent.com/65080026/144756460-1387698e-7ae9-4268-b981-e6f2bf556344.PNG">
 
-# Open the project (click on it) and confirm the update:
+# Open the project (click on it) and confirm the update ("newer" here still means 2019.4.0f1):
 
 <img width="583" alt="update2" src="https://user-images.githubusercontent.com/65080026/144756461-d631514e-0b9a-4494-8aec-394d7867321e.PNG">
 
